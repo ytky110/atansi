@@ -1,8 +1,7 @@
-TARGET = bin/atansi
-SRC    = src/atansi.c
 FLAGS  = -Wall -Werror -Wextra
 
-$(TARGET): $(SRC)
+bin/atansi: src/atansi.c
+	mkdir -p bin
 	gcc $^ -o $@
 
 .PHONY: clean
