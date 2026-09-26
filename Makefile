@@ -1,10 +1,22 @@
-FLAGS  = -Wall -Werror -Wextra
+TARGET = bin/atansi
+FLAGS  = -std=c89 -Wall -Werror -Wextra
 
-bin/atansi: src/atansi.c
+$(TARGET): src/atansi.c
 	mkdir -p bin
-	gcc $^ -o $@
+	cc $(FLAGS) $^ -o $@
 
 .PHONY: clean
 
 clean:
-	rm -f bin/*
+	rm -fr bin/
+	rm -fr pkg/
+	.ypkg2/CLEANPKG
+
+# For yports
+
+installpkg2: buildpkg2
+	ypkg2 install pkg/*
+
+buildpkg2: $(TARGET)
+	mkdir -p pkg
+	.ypkg2/MAKEPKG

@@ -1,4 +1,2 @@
 bin/
-
-.ypkg/
-.ypkg2/
+pkg/

@@ -133,7 +133,7 @@ int substit(FILE* target) {
                 printf("\e[9m");
             }
             else if (next == '(') {
-                signed char buf[MACRO_BUF];
+                char buf[MACRO_BUF];
                 int i = 0;
                 while (1) {
                     if (i >= MACRO_BUF-1) {
